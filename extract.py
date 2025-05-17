@@ -1,137 +1,161 @@
-import os
-import csv
 import sys
+import csv
 import logging
-from typing import List, Optional
+import argparse
+from typing import List, Optional, Dict, Any
 from datetime import datetime
 from elasticsearch import Elasticsearch
-from elasticsearch.exceptions import NotFoundError, ConnectionError
-import argparse
 
-# === Configuración y constantes ===
-CHUNK_SIZE = 10000
-OUTPUT_DIR = "logs_extraidos"
+# === Constants ===
+DEFAULT_INDEX = "logs-multiples"
+DEFAULT_BATCH_SIZE = 1000
+CSV_CHUNK_SIZE = 10000
 ELASTICSEARCH_URL = "http://localhost:9200"
-PIT_KEEP_ALIVE = "1m"
+CSV_OUTPUT_PATH = "extracted_logs"
 
-# === Logging ===
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
-logger = logging.getLogger(__name__)
+# === Logging config ===
+logging.basicConfig(
+    level=logging.INFO,
+    format="[%(asctime)s] %(levelname)s - %(message)s",
+    handlers=[logging.StreamHandler(sys.stdout)]
+)
 
-# === Cliente de Elasticsearch ===
+# === Elasticsearch client ===
 es = Elasticsearch(ELASTICSEARCH_URL)
 
-# === Funciones auxiliares ===
-def construir_query(pit_id: str, nivel: Optional[str], fecha_inicio: Optional[str], fecha_fin: Optional[str], search_after: Optional[list], batch_size: int) -> dict:
-    filtro = []
+def validate_index_exists(index: str) -> None:
+    """Check if the given index exists in Elasticsearch."""
+    if not es.indices.exists(index=index):
+        logging.error(f"The index '{index}' does not exist.")
+        sys.exit(1)
 
-    if nivel:
-        filtro.append({"match": {"level": nivel}})
+def open_point_in_time(index: str, keep_alive: str = "1m") -> str:
+    """Open a Point In Time (PIT) context and return its ID."""
+    pit_response = es.open_point_in_time(index=index, keep_alive=keep_alive)
+    pit_id = pit_response.get("pit_id") or pit_response.get("id")
+    if not pit_id:
+        logging.error("Failed to retrieve the PIT ID.")
+        logging.debug(f"Raw PIT response: {pit_response}")
+        sys.exit(1)
+    return pit_id
 
-    if fecha_inicio or fecha_fin:
-        rango = {}
-        if fecha_inicio:
-            rango["gte"] = fecha_inicio
-        if fecha_fin:
-            rango["lte"] = fecha_fin
-        filtro.append({"range": {"timestamp": rango}})
+def build_query(
+    pit_id: str,
+    search_after: Optional[List[Any]],
+    level: Optional[str],
+    start_date: Optional[str],
+    end_date: Optional[str],
+    batch_size: int
+) -> Dict[str, Any]:
+    """Build the query for fetching logs."""
+    filters = []
 
-    query = {
+    if level:
+        filters.append({"match": {"level": level}})
+
+    if start_date or end_date:
+        date_range = {}
+        if start_date:
+            date_range["gte"] = start_date
+        if end_date:
+            date_range["lte"] = end_date
+        filters.append({"range": {"timestamp": date_range}})
+
+    query_body = {
         "size": batch_size,
         "sort": [{"timestamp": "asc"}],
-        "pit": {"id": pit_id, "keep_alive": PIT_KEEP_ALIVE},
+        "pit": {"id": pit_id, "keep_alive": "1m"},
         "query": {
             "bool": {
-                "must": filtro if filtro else {"match_all": {}}
+                "must": filters if filters else {"match_all": {}}
             }
         }
     }
 
     if search_after:
-        query["search_after"] = search_after
+        query_body["search_after"] = search_after
 
-    return query
+    return query_body
 
-def guardar_chunk_csv(logs: List[List[str]], chunk_idx: int, output_dir: str = OUTPUT_DIR) -> None:
-    os.makedirs(output_dir, exist_ok=True)
-    archivo = os.path.join(output_dir, f"logs_chunk_{chunk_idx}.csv")
+def save_logs_to_csv(logs: List[Dict[str, Any]], chunk_index: int) -> None:
+    """Save logs to a CSV file with chunking."""
+    output_file = f"{CSV_OUTPUT_PATH}/logs_chunk_{chunk_index}.csv"
+    headers = ["timestamp", "level", "msg"]
 
-    with open(archivo, "w", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
-        writer.writerow(["timestamp", "level", "msg"])
-        writer.writerows(logs)
+    with open(output_file, mode="w", newline="", encoding="utf-8") as file:
+        writer = csv.DictWriter(file, fieldnames=headers)
+        writer.writeheader()
+        for log in logs:
+            writer.writerow({
+                "timestamp": log.get("timestamp"),
+                "level": log.get("level"),
+                "msg": log.get("msg")
+            })
 
-    logger.info(f"Chunk {chunk_idx} guardado con {len(logs)} registros en '{archivo}'")
+    logging.info(f"✅ Saved {len(logs)} logs to: {output_file}")
 
-# === Función principal ===
-def obtener_logs_pit(index: str, nivel: Optional[str] = None, fecha_inicio: Optional[str] = None, fecha_fin: Optional[str] = None, batch_size: int = 1000) -> None:
+def fetch_logs(
+    index: str,
+    level: Optional[str],
+    start_date: Optional[str],
+    end_date: Optional[str],
+    batch_size: int
+) -> None:
+    """Main function to fetch logs using PIT and save to CSV chunks."""
+    validate_index_exists(index)
+    pit_id = open_point_in_time(index)
+
+    search_after = None
+    total_logs = 0
+    current_chunk = []
+    chunk_counter = 1
+
     try:
-        if not es.indices.exists(index=index):
-            logger.error(f"El índice '{index}' no existe.")
-            sys.exit(1)
-
-        pit_response = es.open_point_in_time(index=index, keep_alive=PIT_KEEP_ALIVE)
-        pit_id = pit_response.get("pit_id") or pit_response.get("id")
-
-        if not pit_id:
-            logger.error("No se pudo obtener el PIT. Respuesta: %s", pit_response)
-            sys.exit(1)
-
-        total_docs = 0
-        search_after = None
-        logs = []
-        chunk_idx = 1
-
         while True:
-            query = construir_query(pit_id, nivel, fecha_inicio, fecha_fin, search_after, batch_size)
-            resp = es.search(body=query)
-            hits = resp["hits"]["hits"]
+            query = build_query(pit_id, search_after, level, start_date, end_date, batch_size)
+            response = es.search(body=query)
+            hits = response.get("hits", {}).get("hits", [])
 
             if not hits:
                 break
 
             for hit in hits:
                 source = hit["_source"]
-                logs.append([source.get("timestamp"), source.get("level"), source.get("msg")])
-                total_docs += 1
+                current_chunk.append(source)
+                total_logs += 1
 
-                if len(logs) >= CHUNK_SIZE:
-                    guardar_chunk_csv(logs, chunk_idx)
-                    logs = []
-                    chunk_idx += 1
+                if len(current_chunk) >= CSV_CHUNK_SIZE:
+                    save_logs_to_csv(current_chunk, chunk_counter)
+                    chunk_counter += 1
+                    current_chunk.clear()
 
             search_after = hits[-1]["sort"]
 
-        if logs:
-            guardar_chunk_csv(logs, chunk_idx)
+        # Save any remaining logs in the last chunk
+        if current_chunk:
+            save_logs_to_csv(current_chunk, chunk_counter)
 
-        logger.info(f"\n=== Total logs extraídos: {total_docs} ===")
-
-    except (ConnectionError, NotFoundError) as e:
-        logger.error(f"Error de conexión con Elasticsearch: {e}")
-        sys.exit(1)
+        logging.info(f"✅ Total logs extracted: {total_logs}")
 
     finally:
-        try:
-            es.close_point_in_time(body={"id": pit_id})
-        except Exception as e:
-            logger.warning(f"No se pudo cerrar el PIT: {e}")
+        es.close_point_in_time(body={"id": pit_id})
 
-# === CLI ===
+def parse_arguments() -> argparse.Namespace:
+    """Parse CLI arguments."""
+    parser = argparse.ArgumentParser(description="Extract logs from Elasticsearch using PIT and save as CSV.")
+    parser.add_argument("--index", default=DEFAULT_INDEX, help="Elasticsearch index name")
+    parser.add_argument("--level", help="Filter by log level (INFO, ERROR, etc.)")
+    parser.add_argument("--start", help="Start date (YYYY-MM-DD or ISO 8601)")
+    parser.add_argument("--end", help="End date (YYYY-MM-DD or ISO 8601)")
+    parser.add_argument("--batch", type=int, default=DEFAULT_BATCH_SIZE, help="Batch size per query")
+    return parser.parse_args()
+
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--indice", default="logs-multiples")
-    parser.add_argument("--nivel", help="Filtrar por nivel (INFO, ERROR...)")
-    parser.add_argument("--inicio", help="Fecha inicio (YYYY-MM-DD o ISO 8601)")
-    parser.add_argument("--fin", help="Fecha fin (YYYY-MM-DD o ISO 8601)")
-    parser.add_argument("--batch", type=int, default=1000)
-
-    args = parser.parse_args()
-
-    obtener_logs_pit(
-        index=args.indice,
-        nivel=args.nivel,
-        fecha_inicio=args.inicio,
-        fecha_fin=args.fin,
+    args = parse_arguments()
+    fetch_logs(
+        index=args.index,
+        level=args.level,
+        start_date=args.start,
+        end_date=args.end,
         batch_size=args.batch
     )

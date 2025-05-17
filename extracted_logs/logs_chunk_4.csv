@@ -1,0 +1,369 @@
+timestamp,level,msg
+2025-04-25T08:01:42Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:01:42Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:01:48Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:01:48Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:01:51Z,WARN,"Token JWT expirado"
+2025-04-25T08:01:51Z,WARN,"Token JWT expirado"
+2025-04-25T08:02:00Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:02:00Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:02:00Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:02:00Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:02:03Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:02:03Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:02:09Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:02:09Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:02:09Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:02:09Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:02:15Z,WARN,"Token JWT expirado"
+2025-04-25T08:02:15Z,WARN,"Token JWT expirado"
+2025-04-25T08:02:21Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:02:21Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:02:33Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:02:33Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:02:39Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:02:39Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:02:42Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:02:42Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:02:48Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:02:48Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:02:51Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:02:51Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:03:06Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:03:06Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:03:21Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:03:21Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:03:30Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:03:30Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:03:54Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:03:54Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:03:57Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:03:57Z,WARN,"Token JWT expirado"
+2025-04-25T08:03:57Z,WARN,"Token JWT expirado"
+2025-04-25T08:03:57Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:04:00Z,WARN,"Archivo no encontrado"
+2025-04-25T08:04:00Z,WARN,"Archivo no encontrado"
+2025-04-25T08:04:09Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:04:09Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:04:15Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:04:15Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:04:36Z,WARN,"Archivo no encontrado"
+2025-04-25T08:04:36Z,WARN,"Archivo no encontrado"
+2025-04-25T08:04:39Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:04:39Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:04:51Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:04:51Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:04:57Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:04:57Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:05:00Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:05:00Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:05:03Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:05:03Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:05:09Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:05:09Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:05:12Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:05:12Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:05:30Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:05:30Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:05:33Z,WARN,"Token JWT expirado"
+2025-04-25T08:05:33Z,WARN,"Token JWT expirado"
+2025-04-25T08:05:39Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:05:39Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:05:45Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:05:45Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:05:54Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:05:54Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:05:54Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:05:54Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:06:09Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:06:09Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:06:15Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:06:15Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:06:24Z,WARN,"Archivo no encontrado"
+2025-04-25T08:06:24Z,WARN,"Archivo no encontrado"
+2025-04-25T08:06:30Z,WARN,"Archivo no encontrado"
+2025-04-25T08:06:30Z,WARN,"Archivo no encontrado"
+2025-04-25T08:06:42Z,WARN,"Archivo no encontrado"
+2025-04-25T08:06:42Z,WARN,"Archivo no encontrado"
+2025-04-25T08:06:48Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:06:48Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:06:51Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:06:51Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:07:09Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:07:09Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:07:12Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:07:12Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:07:15Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:07:15Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:07:18Z,WARN,"Token JWT expirado"
+2025-04-25T08:07:18Z,WARN,"Token JWT expirado"
+2025-04-25T08:07:30Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:07:30Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:07:42Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:07:42Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:07:48Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:07:48Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:07:48Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:07:48Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:07:51Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:07:51Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:08:12Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:08:12Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:08:15Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:08:15Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:08:18Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:08:18Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:08:27Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:08:27Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:08:33Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:08:33Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:08:36Z,WARN,"Token JWT expirado"
+2025-04-25T08:08:36Z,WARN,"Token JWT expirado"
+2025-04-25T08:08:39Z,WARN,"Token JWT expirado"
+2025-04-25T08:08:39Z,WARN,"Token JWT expirado"
+2025-04-25T08:08:45Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:08:45Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:08:45Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:08:45Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:09:12Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:09:12Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:09:12Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:09:12Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:09:18Z,WARN,"Archivo no encontrado"
+2025-04-25T08:09:18Z,WARN,"Archivo no encontrado"
+2025-04-25T08:09:30Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:09:30Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:09:36Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:09:36Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:09:39Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:09:39Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:09:42Z,WARN,"Archivo no encontrado"
+2025-04-25T08:09:42Z,WARN,"Archivo no encontrado"
+2025-04-25T08:09:45Z,WARN,"Token JWT expirado"
+2025-04-25T08:09:45Z,WARN,"Token JWT expirado"
+2025-04-25T08:09:48Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:09:48Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:10:09Z,WARN,"Token JWT expirado"
+2025-04-25T08:10:09Z,WARN,"Token JWT expirado"
+2025-04-25T08:10:12Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:10:12Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:10:12Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:10:12Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:10:15Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:10:15Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:10:27Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:10:27Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:10:30Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:10:30Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:10:33Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:10:33Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:10:33Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:10:33Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:10:36Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:10:36Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:10:39Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:10:39Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:10:42Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:10:42Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:10:48Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:10:48Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:10:51Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:10:51Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:10:51Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:10:51Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:10:54Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:10:54Z,WARN,"Archivo no encontrado"
+2025-04-25T08:10:54Z,WARN,"Archivo no encontrado"
+2025-04-25T08:10:54Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:11:33Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:11:33Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:11:39Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:11:39Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:11:45Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:11:45Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:11:48Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:11:48Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:11:57Z,WARN,"Token JWT expirado"
+2025-04-25T08:11:57Z,WARN,"Token JWT expirado"
+2025-04-25T08:12:00Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:12:00Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:12:00Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:12:00Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:12:06Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:12:06Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:12:15Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:12:15Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:12:21Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:12:21Z,WARN,"Token JWT expirado"
+2025-04-25T08:12:21Z,WARN,"Token JWT expirado"
+2025-04-25T08:12:21Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:12:27Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:12:27Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:12:27Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:12:27Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:12:30Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:12:30Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:12:30Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:12:30Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:12:33Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:12:33Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:12:33Z,WARN,"Archivo no encontrado"
+2025-04-25T08:12:33Z,WARN,"Archivo no encontrado"
+2025-04-25T08:12:33Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:12:33Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:12:42Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:12:42Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:12:45Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:12:45Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:12:51Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:12:51Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:12:54Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:12:54Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:13:00Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:13:00Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:13:00Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:13:00Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:13:09Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:13:09Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:13:12Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:13:12Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:13:27Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:13:27Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:13:30Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:13:30Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:13:39Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:13:39Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:13:42Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:13:42Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:13:42Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:13:42Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:13:51Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:13:51Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:13:54Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:13:54Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:14:03Z,WARN,"Archivo no encontrado"
+2025-04-25T08:14:03Z,WARN,"Archivo no encontrado"
+2025-04-25T08:14:09Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:14:09Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:14:18Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:14:18Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:14:27Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:14:27Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:14:36Z,WARN,"Archivo no encontrado"
+2025-04-25T08:14:36Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:14:36Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:14:36Z,WARN,"Archivo no encontrado"
+2025-04-25T08:14:39Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:14:39Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:15:03Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:15:03Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:15:06Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:15:06Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:15:09Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:15:09Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:15:15Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:15:15Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:15:24Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:15:24Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:15:27Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:15:27Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:15:39Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:15:39Z,WARN,"Archivo no encontrado"
+2025-04-25T08:15:39Z,WARN,"Archivo no encontrado"
+2025-04-25T08:15:39Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:15:45Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:15:45Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:15:54Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:15:54Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:15:57Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:15:57Z,WARN,"Archivo no encontrado"
+2025-04-25T08:15:57Z,WARN,"Archivo no encontrado"
+2025-04-25T08:15:57Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:16:00Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:16:00Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:16:12Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:16:12Z,WARN,Par\xE1metros inv\xE1lidos en la solicitud\r
+2025-04-25T08:16:15Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:16:15Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:16:18Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:16:18Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:16:21Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:16:21Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:16:42Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:16:42Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:16:45Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:16:45Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:16:54Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:16:54Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:17:00Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:17:00Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:17:03Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:17:03Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:17:12Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:17:12Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:17:18Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:17:18Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:17:30Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:17:30Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:17:30Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:17:30Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:17:36Z,WARN,"Token JWT expirado"
+2025-04-25T08:17:36Z,WARN,"Token JWT expirado"
+2025-04-25T08:17:42Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:17:42Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:17:45Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:17:45Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:17:51Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:17:51Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:17:54Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:17:54Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:17:54Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:17:54Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:18:00Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:18:00Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:18:03Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:18:03Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:18:12Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:18:12Z,WARN,Conexi\xF3n con base de datos exitosa\r
+2025-04-25T08:18:18Z,WARN,"Archivo no encontrado"
+2025-04-25T08:18:18Z,WARN,"Archivo no encontrado"
+2025-04-25T08:18:21Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:18:21Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:18:27Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:18:27Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:18:27Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:18:27Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:18:33Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:18:33Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:18:36Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:18:36Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:18:36Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:18:36Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:18:42Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:18:42Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:18:48Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:18:48Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:18:54Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:18:54Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:18:57Z,WARN,"Token JWT expirado"
+2025-04-25T08:18:57Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:18:57Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:18:57Z,WARN,"Token JWT expirado"
+2025-04-25T08:19:06Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:19:06Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:19:15Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:19:15Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:19:15Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:19:15Z,WARN,Usuario inici\xF3 sesi\xF3n\r
+2025-04-25T08:19:21Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:19:21Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:19:30Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:19:30Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:19:30Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:19:30Z,WARN,Carga de m\xF3dulo completada\r
+2025-04-25T08:19:30Z,WARN,Se actualiz\xF3 la configuraci\xF3n\r
+2025-04-25T08:19:30Z,WARN,"Intento de acceso no autorizado"
+2025-04-25T08:19:36Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:19:36Z,WARN,Fallo en la autenticaci\xF3n\r
+2025-04-25T08:19:45Z,WARN,"Error al cargar datos del usuario"
+2025-04-25T08:19:45Z,WARN,"Error al cargar datos del usuario"
