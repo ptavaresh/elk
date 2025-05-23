@@ -18,12 +18,18 @@ scan_patterns:
 
 dev:
   elasticsearch_url: "http://localhost:9200"
-  csv_output_path: "output_dev"
+  default_index: "logs-dev"
+  batch_size: 500
+  csv_output_base: "extracted_logs_dev"
 
 test:
-  elasticsearch_url: "http://test-es:9200"
-  csv_output_path: "output_test"
+  elasticsearch_url: "http://localhost:9200"
+  default_index: "logs-test"
+  batch_size: 1000
+  csv_output_base: "extracted_logs_test"
 
 prod:
-  elasticsearch_url: "https://prod-es:9200"
-  csv_output_path: "output_prod"
+  elasticsearch_url: "https://es-cluster.example.com:9200"
+  default_index: "logs-prod"
+  batch_size: 2000
+  csv_output_base: "extracted_logs_prod"

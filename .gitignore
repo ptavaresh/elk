@@ -2,3 +2,5 @@ __pycache__
 logs/*
 logs_extraidos/*
 output_dev/*
+extracted_logs_dev/extracted_logs_dev/*
+extracted_logs_dev/*
