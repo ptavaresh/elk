@@ -21,15 +21,19 @@ dev:
   default_index: "logs-dev"
   batch_size: 500
   csv_output_base: "extracted_logs_dev"
+  max_logs_per_chunk: 2000
 
 test:
   elasticsearch_url: "http://localhost:9200"
   default_index: "logs-test"
-  batch_size: 1000
+  batch_size: 500
   csv_output_base: "extracted_logs_test"
+  max_logs_per_chunk: 2000
 
 prod:
   elasticsearch_url: "https://es-cluster.example.com:9200"
   default_index: "logs-prod"
-  batch_size: 2000
+  batch_size: 500
   csv_output_base: "extracted_logs_prod"
+  max_logs_per_chunk: 2000
+  

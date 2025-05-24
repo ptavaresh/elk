@@ -7,15 +7,23 @@ import yaml
 from typing import List, Optional, Dict, Any
 from datetime import datetime
 from elasticsearch import Elasticsearch
+from elasticsearch.exceptions import ConnectionError, AuthenticationException, TransportError
 
 # === Load YAML config ===
 def load_config(env: str = "dev") -> Dict[str, Any]:
-    with open("config.yml", "r") as f:
-        config = yaml.safe_load(f)
-    if env not in config:
-        logging.error(f"Environment '{env}' not found in config.yml")
+    try:
+        with open("config.yml", "r") as f:
+            config = yaml.safe_load(f)
+        if env not in config:
+            logging.error(f"Environment '{env}' not found in config.yml")
+            sys.exit(1)
+        return config[env]
+    except FileNotFoundError:
+        logging.error("config.yml file not found.")
         sys.exit(1)
-    return config[env]
+    except yaml.YAMLError as e:
+        logging.error(f"Error parsing config.yml: {e}")
+        sys.exit(1)
 
 # === Logging config ===
 logging.basicConfig(
@@ -27,21 +35,33 @@ logging.basicConfig(
 def get_output_directory(base_dir: str, index: str) -> str:
     run_id = datetime.now().strftime("%Y%m%d_%H%M%S")
     output_dir = os.path.join(base_dir, f"{index}/run_{run_id}")
-    os.makedirs(output_dir, exist_ok=True)
+    try:
+        os.makedirs(output_dir, exist_ok=True)
+    except OSError as e:
+        logging.error(f"❌ Error creating output directory '{output_dir}': {e}")
+        sys.exit(1)
     return output_dir
 
 def validate_index_exists(es: Elasticsearch, index: str) -> None:
-    if not es.indices.exists(index=index):
-        logging.error(f"The index '{index}' does not exist.")
+    try:
+        if not es.indices.exists(index=index):
+            logging.error(f"The index '{index}' does not exist.")
+            sys.exit(1)
+    except TransportError as e:
+        logging.error(f"Transport error checking index: {e}")
         sys.exit(1)
 
 def open_point_in_time(es: Elasticsearch, index: str, keep_alive: str = "1m") -> str:
-    pit_response = es.open_point_in_time(index=index, keep_alive=keep_alive)
-    pit_id = pit_response.get("pit_id") or pit_response.get("id")
-    if not pit_id:
-        logging.error("Failed to retrieve the PIT ID.")
+    try:
+        pit_response = es.open_point_in_time(index=index, keep_alive=keep_alive)
+        pit_id = pit_response.get("pit_id") or pit_response.get("id")
+        if not pit_id:
+            logging.error("Failed to retrieve the PIT ID.")
+            sys.exit(1)
+        return pit_id
+    except TransportError as e:
+        logging.error(f"Error opening PIT: {e}")
         sys.exit(1)
-    return pit_id
 
 def build_query(
     pit_id: str,
@@ -78,12 +98,18 @@ def build_query(
 def save_logs_to_csv(logs: List[Dict[str, Any]], chunk_index: int, output_dir: str) -> None:
     output_file = os.path.join(output_dir, f"logs_chunk_{chunk_index}.csv")
     all_keys = set().union(*(log.keys() for log in logs))
-    with open(output_file, mode="w", newline="", encoding="utf-8") as file:
-        writer = csv.DictWriter(file, fieldnames=list(all_keys))
-        writer.writeheader()
-        for log in logs:
-            writer.writerow(log)
-    logging.info(f"✅ Saved {len(logs)} logs to: {output_file}")
+
+    try:
+        with open(output_file, mode="w", newline="", encoding="utf-8") as file:
+            writer = csv.DictWriter(file, fieldnames=list(all_keys))
+            writer.writeheader()
+            for log in logs:
+                writer.writerow(log)
+        logging.info(f"✅ Saved {len(logs)} logs to: {output_file}")
+    except OSError as e:
+        logging.error(f"❌ Error writing to file '{output_file}': {e}")
+    except Exception as e:
+        logging.error(f"❌ Unexpected error while saving logs to CSV: {e}")
 
 def fetch_logs(
     es: Elasticsearch,
@@ -92,7 +118,8 @@ def fetch_logs(
     start_date: Optional[str],
     end_date: Optional[str],
     batch_size: int,
-    csv_output_base: str
+    csv_output_base: str,
+    fields: Optional[List[str]] = None  # <-- Nuevo parámetro
 ) -> None:
     validate_index_exists(es, index)
     pit_id = open_point_in_time(es, index)
@@ -106,6 +133,8 @@ def fetch_logs(
     try:
         while True:
             query = build_query(pit_id, search_after, level, start_date, end_date, batch_size)
+            if fields:
+                query["_source"] = fields  # <-- Solo extrae estos campos
             response = es.search(body=query)
             hits = response.get("hits", {}).get("hits", [])
 
@@ -113,7 +142,10 @@ def fetch_logs(
                 break
 
             for hit in hits:
-                current_chunk.append(hit["_source"])
+                log = hit["_source"]
+                if fields:
+                    log = {k: log.get(k, None) for k in fields}  # Solo los campos seleccionados
+                current_chunk.append(log)
                 total_logs += 1
                 if len(current_chunk) >= 10000:
                     save_logs_to_csv(current_chunk, chunk_counter, output_dir)
@@ -127,7 +159,10 @@ def fetch_logs(
 
         logging.info(f"✅ Total logs extracted: {total_logs}")
     finally:
-        es.close_point_in_time(body={"id": pit_id})
+        try:
+            es.close_point_in_time(body={"id": pit_id})
+        except Exception as e:
+            logging.warning(f"⚠️ Could not close PIT: {e}")
 
 def parse_arguments() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Extract logs from Elasticsearch using PIT and save as CSV.")
@@ -143,7 +178,12 @@ if __name__ == "__main__":
     args = parse_arguments()
     config = load_config(args.env)
 
-    es = Elasticsearch(config["elasticsearch_url"])
+    try:
+        es = Elasticsearch(config["elasticsearch_url"])
+    except (ConnectionError, AuthenticationException) as e:
+        logging.error(f"❌ Error connecting to Elasticsearch: {e}")
+        sys.exit(1)
+
     index = args.index or config["default_index"]
     batch_size = args.batch or config["batch_size"]
     csv_output_base = config["csv_output_base"]
@@ -155,5 +195,6 @@ if __name__ == "__main__":
         start_date=args.start,
         end_date=args.end,
         batch_size=batch_size,
-        csv_output_base=csv_output_base
+        csv_output_base=csv_output_base,
+        fields=["timestamp", "level", "message"]  # <-- Tus campos deseados
     )
