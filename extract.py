@@ -119,7 +119,8 @@ def fetch_logs(
     end_date: Optional[str],
     batch_size: int,
     csv_output_base: str,
-    fields: Optional[List[str]] = None  # <-- Nuevo parámetro
+    fields: Optional[List[str]] = None,
+    max_logs_per_chunk: int = 1000  # Nuevo parámetro con valor por defecto
 ) -> None:
     validate_index_exists(es, index)
     pit_id = open_point_in_time(es, index)
@@ -134,7 +135,7 @@ def fetch_logs(
         while True:
             query = build_query(pit_id, search_after, level, start_date, end_date, batch_size)
             if fields:
-                query["_source"] = fields  # <-- Solo extrae estos campos
+                query["_source"] = fields
             response = es.search(body=query)
             hits = response.get("hits", {}).get("hits", [])
 
@@ -144,10 +145,10 @@ def fetch_logs(
             for hit in hits:
                 log = hit["_source"]
                 if fields:
-                    log = {k: log.get(k, None) for k in fields}  # Solo los campos seleccionados
+                    log = {k: log.get(k, None) for k in fields}
                 current_chunk.append(log)
                 total_logs += 1
-                if len(current_chunk) >= 10000:
+                if len(current_chunk) >= max_logs_per_chunk:
                     save_logs_to_csv(current_chunk, chunk_counter, output_dir)
                     chunk_counter += 1
                     current_chunk.clear()
@@ -159,10 +160,17 @@ def fetch_logs(
 
         logging.info(f"✅ Total logs extracted: {total_logs}")
     finally:
+        close_point_in_time_with_retries(es, pit_id)
+
+def close_point_in_time_with_retries(es: Elasticsearch, pit_id: str, retries: int = 3):
+    for attempt in range(1, retries + 1):
         try:
             es.close_point_in_time(body={"id": pit_id})
+            logging.info("✅ PIT closed successfully.")
+            return
         except Exception as e:
-            logging.warning(f"⚠️ Could not close PIT: {e}")
+            logging.warning(f"⚠️ Attempt {attempt} to close PIT failed: {e}")
+    logging.error("❌ Could not close PIT after several attempts. Manual cleanup may be required.")
 
 def parse_arguments() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Extract logs from Elasticsearch using PIT and save as CSV.")
@@ -187,6 +195,7 @@ if __name__ == "__main__":
     index = args.index or config["default_index"]
     batch_size = args.batch or config["batch_size"]
     csv_output_base = config["csv_output_base"]
+    max_logs_per_chunk = config.get("max_logs_per_chunk", 1000)
 
     fetch_logs(
         es=es,
@@ -196,5 +205,6 @@ if __name__ == "__main__":
         end_date=args.end,
         batch_size=batch_size,
         csv_output_base=csv_output_base,
-        fields=["timestamp", "level", "message"]  # <-- Tus campos deseados
+        fields=["timestamp", "level", "message"],
+        max_logs_per_chunk=max_logs_per_chunk  # <-- ahora configurable
     )
